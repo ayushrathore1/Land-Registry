@@ -1,0 +1,51 @@
+plot_id,owner_name,area,village,survey_no,registration_date,father_name,land_type
+RAM-001,Rajesh Kumar Singh,2500,Rampur,S-101,2020-05-15,Mohan Singh,Agricultural
+RAM-002,Suresh Prasad Yadav,3200,Rampur,S-102,2019-08-22,Ram Prasad Yadav,Agricultural
+RAM-003,Ramesh Kumar,1800,Rampur,S-103,2021-01-10,Krishna Kumar,Residential
+RAM-004,Anil Kumar Sharma,4100,Rampur,S-104,2018-11-30,Shyam Sharma,Agricultural
+RAM-005,Vijay Singh,2750,Rampur,S-105,2020-03-18,Bharat Singh,Agricultural
+RAM-006,Manoj Kumar Verma,3500,Rampur,S-106,2019-07-05,Gopal Verma,Commercial
+RAM-007,Sanjay Prasad,2200,Rampur,S-107,2021-06-12,Hari Prasad,Agricultural
+RAM-008,Pradeep Kumar,2900,Rampur,S-108,2020-09-28,Sunil Kumar,Residential
+RAM-009,Rakesh Singh,3100,Rampur,S-109,2018-04-14,Dinesh Singh,Agricultural
+RAM-010,Ashok Kumar Gupta,2650,Rampur,S-110,2019-12-01,Ramesh Gupta,Agricultural
+LAK-001,Sunita Devi,3400,Lakshmipur,S-201,2020-02-20,Late Mahesh Prasad,Agricultural
+LAK-002,Geeta Kumari,2800,Lakshmipur,S-202,2019-05-08,Late Suresh Kumar,Agricultural
+LAK-003,Kamla Devi Singh,4200,Lakshmipur,S-203,2021-03-25,Late Ram Singh,Agricultural
+LAK-004,Ravi Shankar Dubey,1950,Lakshmipur,S-204,2018-08-17,Shiv Shankar Dubey,Residential
+LAK-005,Amit Kumar Jha,3650,Lakshmipur,S-205,2020-06-30,Ramesh Jha,Agricultural
+LAK-006,Prem Chand Tiwari,2100,Lakshmipur,S-206,2019-10-12,Shyam Tiwari,Commercial
+LAK-007,Satish Kumar Pandey,3800,Lakshmipur,S-207,2021-01-28,Hari Pandey,Agricultural
+LAK-008,Dinesh Prasad Mishra,2450,Lakshmipur,S-208,2020-04-05,Gopal Mishra,Agricultural
+LAK-009,Rajendra Singh,2950,Lakshmipur,S-209,2018-12-20,Mahendra Singh,Agricultural
+LAK-010,Arvind Kumar,3150,Lakshmipur,S-210,2019-09-15,Kishore Kumar,Residential
+KRI-001,Sunil Kumar Roy,2600,Krishnanagar,S-301,2020-07-08,Anil Roy,Agricultural
+KRI-002,Binod Kumar Das,3900,Krishnanagar,S-302,2019-02-14,Ashok Das,Agricultural
+KRI-003,Manish Kumar Saha,2150,Krishnanagar,S-303,2021-05-22,Rajesh Saha,Residential
+KRI-004,Prakash Chandra,4500,Krishnanagar,S-304,2018-10-03,Ramchandra,Agricultural
+KRI-005,Alok Kumar Bose,1750,Krishnanagar,S-305,2020-01-17,Subhash Bose,Commercial
+KRI-006,Tarun Kumar Ghosh,3300,Krishnanagar,S-306,2019-06-29,Paresh Ghosh,Agricultural
+KRI-007,Nitin Banerjee,2850,Krishnanagar,S-307,2021-02-11,Sudhir Banerjee,Agricultural
+KRI-008,Rohit Kumar Sengupta,3050,Krishnanagar,S-308,2020-08-24,Asim Sengupta,Agricultural
+KRI-009,Vikram Singh Choudhary,2400,Krishnanagar,S-309,2018-05-19,Balram Choudhary,Residential
+KRI-010,Deepak Mukherjee,3700,Krishnanagar,S-310,2019-11-07,Arun Mukherjee,Agricultural
+SUN-001,Biswajit Sarkar,3250,Sundarban,S-401,2020-04-12,Tapan Sarkar,Agricultural
+SUN-002,Suman Halder,2050,Sundarban,S-402,2019-01-26,Ratan Halder,Agricultural
+SUN-003,Debashis Mondal,4350,Sundarban,S-403,2021-07-19,Gopal Mondal,Agricultural
+SUN-004,Partha Biswas,1900,Sundarban,S-404,2018-09-08,Suresh Biswas,Residential
+SUN-005,Abhijit Naskar,3550,Sundarban,S-405,2020-11-23,Sukumar Naskar,Agricultural
+SUN-006,Sandip Bera,2700,Sundarban,S-406,2019-04-16,Manik Bera,Commercial
+SUN-007,Kajal Mallick,3950,Sundarban,S-407,2021-08-02,Late Anil Mallick,Agricultural
+SUN-008,Mrinal Kanti Jana,2300,Sundarban,S-408,2020-02-09,Bimal Jana,Agricultural
+SUN-009,Chanchal Das,2550,Sundarban,S-409,2018-07-31,Ranjit Das,Agricultural
+SUN-010,Prosenjit Mitra,3850,Sundarban,S-410,2019-12-18,Samir Mitra,Agricultural
+ANA-001,Kamal Kumar Shaw,2950,Anandpur,S-501,2020-05-27,Panna Lal Shaw,Agricultural
+ANA-002,Ranjan Kumar Agarwal,4100,Anandpur,S-502,2019-08-14,Suresh Agarwal,Agricultural
+ANA-003,Bibek Kejriwal,1850,Anandpur,S-503,2021-04-06,Anil Kejriwal,Commercial
+ANA-004,Malay Kumar Sinha,3600,Anandpur,S-504,2018-11-22,Dilip Sinha,Agricultural
+ANA-005,Pintu Prasad,2250,Anandpur,S-505,2020-03-09,Lallan Prasad,Residential
+ANA-006,Subhash Chandra Bose,3150,Anandpur,S-506,2019-06-21,Netaji Bose,Agricultural
+ANA-007,Pappu Kumar,4250,Anandpur,S-507,2021-09-14,Munna Kumar,Agricultural
+ANA-008,Tinku Sharma,2650,Anandpur,S-508,2020-07-03,Bunty Sharma,Agricultural
+ANA-009,Bablu Singh,3450,Anandpur,S-509,2018-10-28,Guddu Singh,Agricultural
+ANA-010,Raju Ram,2800,Anandpur,S-510,2019-03-15,Shamu Ram,Residential

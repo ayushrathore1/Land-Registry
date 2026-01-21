@@ -1,0 +1,51 @@
+plot_id,owner_name_spatial,area_sqm_spatial,village,survey_no
+RAM-001,Rajesh K. Singh,2500,Rampur,S-101
+RAM-002,Suresh P. Yadav,3200,Rampur,S-102
+RAM-003,Ramesh Kumar,1800,Rampur,S-103
+RAM-004,Anil Sharma,4100,Rampur,S-104
+RAM-005,Vijay Kumar Singh,2750,Rampur,S-105
+RAM-006,Manoj Verma,3500,Rampur,S-106
+RAM-007,Sanjay Pd.,2200,Rampur,S-107
+RAM-008,Pradeep Kr.,2900,Rampur,S-108
+RAM-009,Rakesh Kumar Singh,3100,Rampur,S-109
+RAM-010,Ashok Gupta,2650,Rampur,S-110
+LAK-001,Sunita D.,3400,Lakshmipur,S-201
+LAK-002,Geeta K.,2800,Lakshmipur,S-202
+LAK-003,Kamla Singh,4200,Lakshmipur,S-203
+LAK-004,Ravi S. Dubey,1950,Lakshmipur,S-204
+LAK-005,Amit Jha,3650,Lakshmipur,S-205
+LAK-006,Prem C. Tiwari,2100,Lakshmipur,S-206
+LAK-007,Satish Pandey,3800,Lakshmipur,S-207
+LAK-008,Dinesh Mishra,2450,Lakshmipur,S-208
+LAK-009,Rajendra Kr. Singh,2950,Lakshmipur,S-209
+LAK-010,Arvind Kr.,3150,Lakshmipur,S-210
+KRI-001,Sunil Roy,2600,Krishnanagar,S-301
+KRI-002,Binod Das,3900,Krishnanagar,S-302
+KRI-003,Manish Saha,2150,Krishnanagar,S-303
+KRI-004,Prakash Ch.,4500,Krishnanagar,S-304
+KRI-005,Alok Bose,1750,Krishnanagar,S-305
+KRI-006,Tarun Ghosh,3300,Krishnanagar,S-306
+KRI-007,Nitin K. Banerjee,2850,Krishnanagar,S-307
+KRI-008,Rohit Sengupta,3050,Krishnanagar,S-308
+KRI-009,Vikram Choudhary,2400,Krishnanagar,S-309
+KRI-010,Deepak K. Mukherjee,3700,Krishnanagar,S-310
+SUN-001,B. Sarkar,3250,Sundarban,S-401
+SUN-002,Suman H.,2050,Sundarban,S-402
+SUN-003,D. Mondal,4350,Sundarban,S-403
+SUN-004,Partha B.,1900,Sundarban,S-404
+SUN-005,Abhijit N.,3550,Sundarban,S-405
+SUN-006,Sandip B.,2700,Sundarban,S-406
+SUN-007,Kajal M.,3950,Sundarban,S-407
+SUN-008,M.K. Jana,2300,Sundarban,S-408
+SUN-009,Chanchal D.,2550,Sundarban,S-409
+SUN-010,P. Mitra,3850,Sundarban,S-410
+ANA-001,Kamal Shaw,2950,Anandpur,S-501
+ANA-002,Ranjan Agarwal,4100,Anandpur,S-502
+ANA-003,Bibek K.,1850,Anandpur,S-503
+ANA-004,M.K. Sinha,3600,Anandpur,S-504
+ANA-005,Pintu Pd.,2250,Anandpur,S-505
+ANA-006,S.C. Bose,3150,Anandpur,S-506
+ANA-007,Pappu Kr.,4250,Anandpur,S-507
+ANA-008,Tinku S.,2650,Anandpur,S-508
+ANA-009,Bablu S.,3450,Anandpur,S-509
+ANA-010,Raju R.,2800,Anandpur,S-510

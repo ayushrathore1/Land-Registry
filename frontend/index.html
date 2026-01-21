@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Land Record Digitization Tool</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- App Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </div>
+                <h1>Land Record Digitization</h1>
+                <span class="version-badge">v1.0</span>
+            </div>
+            <div class="header-right">
+                <div class="stats-bar" id="statsBar">
+                    <span class="stat"><span class="stat-value" id="totalParcels">-</span> Parcels</span>
+                    <span class="stat"><span class="stat-value" id="matchRate">-</span>% Matched</span>
+                </div>
+                <div class="user-section" id="userSection">
+                    <button class="btn btn-outline" id="loginBtn">Login</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Search Panel -->
+                <div class="panel search-panel">
+                    <h3 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </svg>
+                        Search Records
+                    </h3>
+                    
+                    <div class="search-tabs">
+                        <button class="tab active" data-tab="plot">Plot ID</button>
+                        <button class="tab" data-tab="owner">Owner Name</button>
+                    </div>
+                    
+                    <div class="search-input-group">
+                        <input type="text" id="searchInput" placeholder="Enter plot ID (e.g., RAM-001)" autocomplete="off">
+                        <button class="btn btn-primary" id="searchBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="search-results" id="searchResults">
+                        <div class="empty-state">
+                            <p>Search for a plot by ID or owner name</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Village Filter -->
+                <div class="panel village-panel">
+                    <h3 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Villages
+                    </h3>
+                    <div class="village-list" id="villageList">
+                        <!-- Villages loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Reconciliation Summary -->
+                <div class="panel reconciliation-panel">
+                    <h3 class="panel-title">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        Reconciliation
+                    </h3>
+                    <div class="reconciliation-stats" id="reconciliationStats">
+                        <div class="stat-card match">
+                            <span class="stat-count" id="matchedCount">-</span>
+                            <span class="stat-label">Matched</span>
+                        </div>
+                        <div class="stat-card partial">
+                            <span class="stat-count" id="partialCount">-</span>
+                            <span class="stat-label">Partial</span>
+                        </div>
+                        <div class="stat-card mismatch">
+                            <span class="stat-count" id="mismatchCount">-</span>
+                            <span class="stat-label">Mismatch</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary btn-full" id="viewReportBtn">View Full Report</button>
+                </div>
+            </aside>
+
+            <!-- Map Container -->
+            <div class="map-section">
+                <div id="map"></div>
+                
+                <!-- Map Controls -->
+                <div class="map-controls">
+                    <button class="map-control-btn" id="zoomAllBtn" title="Zoom to All">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="map-control-btn" id="toggleLayersBtn" title="Toggle Layers">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Legend -->
+                <div class="map-legend">
+                    <h4>Legend</h4>
+                    <div class="legend-item">
+                        <span class="legend-color match"></span>
+                        <span>Verified Match</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color partial"></span>
+                        <span>Partial Match</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color mismatch"></span>
+                        <span>Mismatch</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color selected"></span>
+                        <span>Selected</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Panel (shown when parcel selected) -->
+            <aside class="detail-panel" id="detailPanel">
+                <div class="detail-header">
+                    <h3 id="detailTitle">Parcel Details</h3>
+                    <button class="close-btn" id="closeDetailBtn">&times;</button>
+                </div>
+                <div class="detail-content" id="detailContent">
+                    <!-- Content loaded dynamically -->
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="close-btn" id="closeLoginBtn">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-error" id="loginError"></div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+            <div class="modal-footer">
+                <p class="hint">Demo: viewer1/viewer123, editor1/editor123, admin1/admin123</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Record</h2>
+                <button class="close-btn" id="closeEditBtn">&times;</button>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="editPlotId">
+                <div class="form-group">
+                    <label for="editOwnerName">Owner Name</label>
+                    <input type="text" id="editOwnerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editArea">Area (sq.m)</label>
+                    <input type="number" id="editArea" required>
+                </div>
+                <div class="form-group">
+                    <label for="editFatherName">Father's Name</label>
+                    <input type="text" id="editFatherName">
+                </div>
+                <div class="form-group">
+                    <label for="editLandType">Land Type</label>
+                    <select id="editLandType">
+                        <option value="Agricultural">Agricultural</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option>
+                    </select>
+                </div>
+                <div class="form-error" id="editError"></div>
+                <button type="submit" class="btn btn-primary btn-full">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div class="modal modal-large" id="reportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Reconciliation Report</h2>
+                <button class="close-btn" id="closeReportBtn">&times;</button>
+            </div>
+            <div class="report-content" id="reportContent">
+                <!-- Report loaded dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="exportReportBtn">Export CSV</button>
+                <button class="btn btn-primary" id="printReportBtn">Print Report</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/authManager.js"></script>
+    <script src="js/mapManager.js"></script>
+    <script src="js/searchManager.js"></script>
+    <script src="js/editManager.js"></script>
+    <script src="js/reportManager.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

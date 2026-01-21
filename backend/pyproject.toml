@@ -1,0 +1,22 @@
+[project]
+name = "land-records-api"
+version = "1.0.0"
+description = "Land Record Digitization Tool - API Backend"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "rapidfuzz>=3.5.0",
+    "pandas>=2.0.0",
+    "pydantic>=2.0.0",
+    "python-multipart>=0.0.6",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "httpx>=0.25.0",
+]
